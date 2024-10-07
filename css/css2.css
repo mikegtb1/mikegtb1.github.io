@@ -1,0 +1,34 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: unset;
+    background-color: #709b90;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.stack>*+* {
+    margin-block-start: 1.5em;
+}
+
+.container {
+    max-inline-size: 1080px;
+    margin-inline: auto;
+}
+
+.site-nav {
+    display: flex;
+    padding: 0.5rem;
+    list-style-type: none;
+    background-color: #5f4b44;
+    }
+    .site-nav > li > a {
+    display: block;
+    padding: 0.5em 1em;
+    background-color: #cc6b5a;
+    color: white;
+    text-decoration: none;
+}
