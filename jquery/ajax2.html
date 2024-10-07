@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Load files</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="output"></div>
+    <div class="btns">
+        <button id="btn1">1</button>
+        <button id="btn2">2</button>
+        <button id="btn3">3</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $('#btn1').click(adder1);
+        $('#btn2').click(adder2);
+        $('#btn3').click(adder3);
+        function adder2() {
+            $.get('https://www.discoveryvip.com/shared/people.json',
+                (data) => {
+                    console.log(data);
+                    $.each(data.people, (ind, val) => {
+                        console.log(val.first);
+                    });
+                })
+        }
+        function adder3() {
+            $.get('books.json', (data) => {
+                console.log(data.books);
+                let val1 = JSON.stringify(data.books);
+                $.each(data.books, (ind, val) => {
+                    val1 += `<div>(${val.title}) `;
+                    val1 += `(${val.author})</div>`;
+                });
+                $('<div>').html(val1).appendTo('.output');
+})
+}
+                    function adder1(){
+                        $.get('file1.json',(res)=>{
+                        console.log(res);
+                    let html = `${res.firstName} ${res.lastName}`;
+                    $('<h2>').text(html).appendTo('.output');
+                        const a = res.address;
+                        const val1 =
+                        `${a.city}<br>${a.postalCode}<br>${a.state}
+                            <br>${a.streetAddress}`;
+                                $('<div>').html(val1).appendTo('.output');
+                                    $ul = $('<ul>');
+                                        $ul.appendTo('.output');
+$.each(res.phoneNumbers,(ind,val)=>{
+                                            console.log(val);
+                                        const temp = `${ind + 1}. ${val.number} (${val.type})`;
+                                        $('<li>').text(temp).appendTo($ul);
+})
+})
+}
+    </script>
+
+
+</body>
+
+</html>

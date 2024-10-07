@@ -1,0 +1,11 @@
+{"firstName":"Laurence","lastName":"Svekis","isAlive": true,"age": 25,"address": 
+{"streetAddress":"33 Street","city":"New York","state":"NY","postalCode":"10044"
+    },"phoneNumbers": [
+        {"type":"home","number":"1222-1234"
+        },
+        {"type":"office","number":"333 567-1234"
+        },
+        {"type":"mobile","number":"123 444-1234"
+        }
+    ]
+}
