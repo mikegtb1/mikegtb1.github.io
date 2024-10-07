@@ -30,12 +30,13 @@
             $('.output').load('file1.html',(rep, status,xhr) => {
                 if (status != 'success') {
                     console.log('cannot open file!')
+                    $('.output').text = 'cannot open file!';
                 }
             });
         })
         $('#btn3').click(() => {
-            $('.output').load('file1.txt');
-        })
+            $('.output').text = 'The file is being loaded!';
+        });
     </script>
 
 
