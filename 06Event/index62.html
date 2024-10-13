@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>HTML event handler</title>
+  <!--    <link rel="stylesheet" href="styles/main.css">
+      <script src="scripts/main.js"></script>  -->
+</head>
+
+<body>
+    <div>
+        <label for="age"></label>
+        <input id="age" type="" value="0" />
+    </div>
+    <div id="output"></div>
+    <div id="output2"></div>
+    <script>
+        function init() {
+            const element = document.getElementById('age');
+            element.onblur = function() {
+                checkAgeIsNumber(); // Here, the event handler is overwritten.
+
+                checkAgeNotNegative();
+
+        }
+//            element.onblur = checkAgeNotNegative;
+            
+    }
+    window.onload = init;
+
+        function checkAgeNotNegative() {
+            const output = document.getElementById('output2'); // Container for message
+            const element = document.getElementById('age'); // Input field for age
+            const age = element.value; // Current age value
+            if (age < 0) { // If value is negative ...
+                output.textContent = 'Age cannot be negative.'; // ... output an error ...
+                // ... message...
+            } else { // ... else ...
+                output.textContent = ''; // ... delete message.
+            }
+        }
+
+        function checkAgeIsNumber() {
+            const output = document.getElementById('output'); // Container for message
+            const element = document.getElementById('age'); // Input field for age
+            const age = element.value; // Current age value
+            if  ( isNaN(age) ) // If value is negative ...
+            {
+                console.log(typeof(age));
+                output.textContent = 'Please enter a number'; // ... output an error ...
+                // ... message...
+            } else { // ... else ...
+                output.textContent = ''; // ... delete message.
+            }
+        }
+
+    </script>
+</body>
+
+</html>
