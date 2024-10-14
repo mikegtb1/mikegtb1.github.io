@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Form example</title>
+    <!--   <link rel="stylesheet" href="styles/main.css"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/
+bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/
+bootstrap-theme.min.css" crossorigin="anonymous">
+</head>
+
+<body>
+    <form id="orderform" name="orderform" class="form col-xs-12 center-block">
+        <select id="order" name="order" size="4" multiple>
+            <option selected value="P001">Pizza Salami</option>
+            <option value="P002">Pizza Margherita</option>
+            <option value="P003">Pizza Tonno</option>
+            <option value="P004">Pizza Mozzarella</option>
+            <option value="P005">Pizza Hawaii</option>
+        </select>
+    </form>
+    <div class="form col-xs-12 center-block">
+        Selection:
+        <div id="selection">
+        </div>
+    </div>
+    <script>
+
+        function init() {
+            const messageContainer = document.getElementById('selection'); // Container for messages
+            const order = document.getElementById('order'); // <select> element
+            order.addEventListener('change', updateOrder); // Register listener
+
+            function updateOrder(event) {
+                while (messageContainer.firstChild) { // delete all messages
+                    messageContainer.removeChild(
+                        messageContainer.firstChild
+                    );
+                }
+                const options = this.selectedOptions; // selected options
+                for (let i = 0; i < options.length; i++) { // for each option ...
+                    const message = options[i].text // ... generate ...
+                        + ' (' + options[i].value + ')'; // ... message ...
+                    const div = document.createElement('div'); // ... and add it ...
+                    const optionText = document //
+                        .createTextNode(message); //
+                    div.appendChild(optionText); //
+                    messageContainer.appendChild(div); // ... to container
+                }
+            }
+        }
+
+
+        document.addEventListener('DOMContentLoaded', init);
+
+    </script>
+</body>
+
+</html>
