@@ -15,23 +15,28 @@ bootstrap-theme.min.css" crossorigin="anonymous">
     <form id="login" name="login" method="post" action="login.html" class="form col-xs-4 center-block">
         <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" class="form-control" value="" placeholder="Username">
+            <input type="text" id="username" name="username" required class="form-control">
         </div>
         <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" class="form-control" value="" placeholder="Password">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required class="form-control">
         </div>
-        <div class="checkbox">
-            <label for="remember">
-                <input type="checkbox" id="remember" name="remember" value="on">
-                Remember login on this computer
-            </label>
+        <div class="form-group">
+            <label for="url">Website:</label>
+            <input type="url" id="website" name="website" class="form-control">
         </div>
-        <button type="submit" id="submit" name="submit" class="btn btn-primary btn-block">
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" max="99" value="18" class="form-control">
+        </div>
+        <span type="submit" id="submit" name="submit" class="btn btn-primary btn-block">
             Login
-        </button>
+        </span>
+        <span type="reset" id="reset" name="reset" class="btn btn-default btn-block">
+            Reset
+        </span>
     </form>
-    <!--    <script src="scripts/main.js"></script> -->
+
     <script>
 
     </script>
