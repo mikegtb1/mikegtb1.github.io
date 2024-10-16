@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <title>Client side page</title>
+</head>
+
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const source = new EventSource('/events');
+            const list = document.getElementById('exercises')
+            source.addEventListener('message', (e) => {
+                const listItem = document.createElement('li');
+                listItem.classList.add('list-group-item');
+                listItem.textContent += e.data;
+                list.appendChild(listItem);
+            });
+        });
+    </script>
+    <ul id="exercises" class="list-group">
+    </ul>
+</body>
+
+</html>
