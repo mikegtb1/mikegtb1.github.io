@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <title>Checking Battery</title>
+</head>
+
+<body>
+    
+    <div class="form-group">
+        <label class="form-label">Charge:</label>
+        <span type="text" id="charge" class="form-text bg-primary"> AAA </span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Charge Time:</label>
+        <span type="text" id="chargetime" class="form-text bg-success"> BBB </span>
+    </div>
+    <div class="form-group">
+        <label class="form-label">DischargeTime:</label>
+        <span type="text" id="dischargetime" class="form-text bg-warning"> CCC </span>
+
+    </div>
+    <div class="form-group">
+        <label class="form-label">Battery Level:</label>
+        <span type="text" id="batterylevel" class="form-text bg-info">DDD</span>
+    </div>
+
+
+
+    <script>
+        function displayBatteryStatus(battery) {
+            document.getElementById('charge').innerHTML = (battery.charging ? 'Yes' : 'No');
+            document.getElementById('chargetime').innerHTML = battery.chargingTime;
+            document.getElementById('dischargetime').innerHTML = battery.dischargingTime;
+            document.getElementById('batterylevel').innerHTML = battery.level;
+        }
+        navigator.getBattery().then((battery) => {
+            displayBatteryStatus(battery);
+        });
+    </script>
+
+
+
+</body>
+
+</html>
