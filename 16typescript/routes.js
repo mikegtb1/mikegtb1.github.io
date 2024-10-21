@@ -10,15 +10,32 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import fetch from "node-fetch";
 const routeHello = () => "Hello World!";
 const routeAPINames = () => __awaiter(void 0, void 0, void 0, function* () {
-    const url = "https://www.usemodernfullstack.dev/api/v1/users";
+    const url = "http://www.usemodernfullstack.dev/api/v1/users";
     let data;
-    try {
+/*    try {
         const response = yield fetch(url);
         data = (yield response.json());
     }
     catch (err) {
         return "Error";
     }
+*/
+    data = 
+    [
+        {
+          "id": 1,
+          "name": "Olivia Smith"
+        },
+        {
+          "id": 2,
+          "name": "Liam Johnson"
+        },
+        {
+          "id": 3,
+          "name": "Noah Williams"
+        }
+    ];
+
     const names = data
         .map((item) => `id: ${item.id}, name: ${item.name}`)
         .join("<br>");
